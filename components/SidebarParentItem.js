@@ -44,6 +44,7 @@ export default class extends Component {
           }
           .header {
             font-size: 15px;
+            padding-left: 25px;
           }
           .examples-container {
             display: flex;
