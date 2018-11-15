@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Controls from '../components/Controls';
 import Editor from '../components/Editor';
 import Output from '../components/Output';
+import codeExamples from '../lib/code-examples';
 import { createSnippet, shareSnippet } from '../api/snippets';
 
 export default class extends Component {
@@ -28,7 +29,21 @@ export default class extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { errorStatusCode, exampleId, code, timeWindow } = nextProps;
+    const { errorStatusCode, exampleId, code, timeWindow, url } = nextProps;
+
+    const example = url.query.exampleId.split('|');
+
+    codeExamples[example[0]]['childExamples'].forEach(codeExample => {
+      if (codeExample.id === example[1]) {
+        const { code, timeWindow } = codeExample;
+
+        this.setState({
+          exampleId: codeExample.id,
+          code: code,
+          timeWindowInputValue: timeWindow / 1000
+        });
+      }
+    });
 
     if (
       errorStatusCode !== this.props.errorStatusCode ||

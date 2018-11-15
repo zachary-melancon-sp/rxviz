@@ -9,7 +9,7 @@ export default class extends Component {
   };
 
   render() {
-    const { text, childExamples, activeItemId } = this.props;
+    const { id, text, childExamples, activeItemId } = this.props;
 
     return (
       <nav className="container">
@@ -28,8 +28,8 @@ export default class extends Component {
                   <SidebarItem
                     text={example.name}
                     isActive={isActive}
-                    href={`/?exampleId=${example.id}`}
-                    as={`/examples/${example.id}`}
+                    href={`/?exampleId=${id + '|' + example.id}`}
+                    as={`/examples/${id}/${example.id}`}
                   />
                 </li>
               );

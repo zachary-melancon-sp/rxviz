@@ -12,6 +12,7 @@ export default class extends Component {
 
   componentDidMount() {
     const { value, onCmdEnter } = this.props;
+
     const codemirror = require('codemirror');
 
     // This fails on the server with: `navigator` is not defined

@@ -34,6 +34,7 @@ export default class extends Component {
               >
                 <SidebarParentItem
                   text={name}
+                  id={exampleId}
                   isActive={isActive}
                   href={`/?exampleId=${exampleId}`}
                   as={`/examples/${exampleId}`}
