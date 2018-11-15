@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import codeExamples from '../lib/code-examples';
-import SidebarItem from './SidebarItem';
 import SidebarParentItem from './SidebarParentItem';
 
 export default class extends Component {
@@ -33,31 +32,17 @@ export default class extends Component {
                 ref={isActive ? this.scrollToActiveItem : null}
                 key={exampleId}
               >
-                {childExamples ? (
-                  <SidebarParentItem
-                    text={name}
-                    isActive={isActive}
-                    href={`/?exampleId=${exampleId}`}
-                    as={`/examples/${exampleId}`}
-                    childExamples={childExamples}
-                  />
-                ) : (
-                  <SidebarItem
-                    text={name}
-                    isActive={isActive}
-                    href={`/?exampleId=${exampleId}`}
-                    as={`/examples/${exampleId}`}
-                  />
-                )}
+                <SidebarParentItem
+                  text={name}
+                  isActive={isActive}
+                  href={`/?exampleId=${exampleId}`}
+                  as={`/examples/${exampleId}`}
+                  childExamples={childExamples}
+                />
               </li>
             );
           })}
         </ul>
-        <SidebarItem
-          text="Feedback"
-          isActive={activeItemId === 'feedback'}
-          href="/feedback"
-        />
         <style jsx>{`
           .container {
             display: flex;

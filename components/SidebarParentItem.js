@@ -14,26 +14,28 @@ export default class extends Component {
     return (
       <nav className="container">
         <h3 className="header">{text}</h3>
-        <ul className="examples-container">
-          {childExamples.map(example => {
-            const isActive = example.id === activeItemId;
+        {childExamples && (
+          <ul className="examples-container">
+            {childExamples.map(example => {
+              const isActive = example.id === activeItemId;
 
-            return (
-              <li
-                className={`example ${example.id}`}
-                ref={isActive ? this.scrollToActiveItem : null}
-                key={example.id}
-              >
-                <SidebarItem
-                  text={example.name}
-                  isActive={isActive}
-                  href={`/?exampleId=${example.id}`}
-                  as={`/examples/${example.id}`}
-                />
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li
+                  className={`example ${example.id}`}
+                  ref={isActive ? this.scrollToActiveItem : null}
+                  key={example.id}
+                >
+                  <SidebarItem
+                    text={example.name}
+                    isActive={isActive}
+                    href={`/?exampleId=${example.id}`}
+                    as={`/examples/${example.id}`}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        )}
         <style jsx>{`
           .container {
             display: flex;
