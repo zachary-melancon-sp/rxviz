@@ -6,7 +6,7 @@ const renderItem = ({ text, isActive }) => (
     {text}
     <style jsx>{`
       a {
-        padding: 12px 25px;
+        padding: 8px 0;
         display: block;
         color: #eeeff0;
         text-decoration: none;
