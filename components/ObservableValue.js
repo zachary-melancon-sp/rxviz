@@ -72,13 +72,16 @@ export default class ObservableValue extends Component {
   };
 
   renderCircle({ fillColor, onMouseEnter, onMouseLeave }) {
-    const { size, strokeWidth, strokeColor } = this.props;
+    const { strokeWidth, strokeColor, text } = this.props;
+
+    const size = text.length + 'em';
 
     return (
-      <circle
-        cx={0}
-        cy={0}
-        r={size / 2}
+      <rect
+        width={size}
+        height={25}
+        x={'-' + (text.length / 2 + 'em')}
+        y={-12}
         strokeWidth={strokeWidth}
         stroke={strokeColor}
         fill={fillColor}
