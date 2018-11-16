@@ -3,18 +3,11 @@ import Link from 'next/link';
 export default () => (
   <header className="container">
     <Link prefetch as="/" href="/?exampleId=basic-interval">
-      <a>
-        <svg className="logo" width="44" height="44" fillRule="evenodd">
-          <path
-            d="M 22,22 m -22,0 a 22,22 0 1,0 44,0 a 22,22 0 1,0 -44,0 Z M 18,13 v 18 l 14,-9 Z"
-            fill="#e0168f"
-          />
-        </svg>
-      </a>
+      <img src="../static/delorean.png" height="42" width="42" />
     </Link>
     <div className="headers-container">
-      <h1>Rx Visualizer</h1>
-      <h2>Animated playground for Rx Observables</h2>
+      <h1>Subscribe to the Future!</h1>
+      <h2>Where were going we don't need page loads</h2>
     </div>
     <Link href="https://github.com/moroshko/rxviz">
       <a className="github-link" title="Visit RxViz GitHub page">
